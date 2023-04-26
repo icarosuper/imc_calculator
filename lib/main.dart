@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imc_calculator/pages/calculator_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(title: const Text('Calculadora de IMC')),
-        body: const Text('Aplicativo'),
+        body: const CalculatorScreen(),
       ),
     );
   }
