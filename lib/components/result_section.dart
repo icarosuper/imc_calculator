@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ImcResultSection extends StatelessWidget {
-  const ImcResultSection({super.key});
+  final double imc;
+
+  const ImcResultSection(this.imc, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Text('Seu IMC é ${imc.toStringAsFixed(2)}');
   }
 }
