@@ -11,10 +11,10 @@ class Calculator extends StatefulWidget {
   State<StatefulWidget> createState() => _CalculatorState();
 }
 
-class _CalculatorState extends State<Calculator> {  
+class _CalculatorState extends State<Calculator> {
   final heightController = TextEditingController();
   final weightController = TextEditingController();
-  
+
   setImc() {
     try {
       final height = double.parse(heightController.text);
@@ -30,7 +30,7 @@ class _CalculatorState extends State<Calculator> {
     weightController.addListener(setImc);
     super.initState();
   }
-  
+
   @override
   void dispose() {
     heightController.dispose();
@@ -40,28 +40,40 @@ class _CalculatorState extends State<Calculator> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Wrap(
+      runSpacing: 40,
       children: [
+        const Text('Insira seu peso e altura abaixo para calcular o seu IMC',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 24,
+            )),
         TextField(
             controller: heightController,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
-            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))],
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))
+            ],
             decoration: const InputDecoration(
-              labelText: 'Insira a sua altura',
+              labelText: 'Insira a sua altura em m',
+              prefixIcon: Icon(Icons.height),
               prefixText: 'Altura: ',
+              suffixText: 'm',
               filled: true,
-            )
-        ),
+            )),
         TextField(
             controller: weightController,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
-            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))],
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))
+            ],
             decoration: const InputDecoration(
-              labelText: 'Insira o seu peso',
+              labelText: 'Insira o seu peso em Kg',
+              prefixIcon: Icon(Icons.scale),
               prefixText: 'Peso: ',
+              suffixText: 'Kg',
               filled: true,
-            )
-        ),
+            )),
       ],
     );
   }

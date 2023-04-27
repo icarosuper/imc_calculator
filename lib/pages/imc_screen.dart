@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:imc_calculator/components/calculator.dart';
-import 'package:imc_calculator/components/footer.dart';
 import 'package:imc_calculator/components/result_section.dart';
 
 class ImcScreen extends StatefulWidget {
@@ -21,25 +20,15 @@ class _ImcState extends State<ImcScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Insira seu peso e altura abaixo para calcular o seu IMC',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 22,
-              )
-            ),
-            Calculator(setImc),
-            if(imc != null) ImcResultSection(imc!),
-          ],
-        ),
-        const Footer(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Calculator(setImc),
+          if (imc != null) ImcResultSection(imc!),
+        ],
+      ),
     );
   }
 }
