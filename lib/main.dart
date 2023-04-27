@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calculadora de IMC',
       home: Scaffold(
-        appBar: AppBar(title: const Text('Calculadora de IMC')),
+        appBar: AppBar(title: const Center(child: Text('Calculadora de IMC'))),
         body: const SafeArea(child: ImcScreen()),
       ),
     );
