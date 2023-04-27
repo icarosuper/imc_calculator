@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(title: const Center(child: Text('Calculadora de IMC'))),
-        body: const SafeArea(child: ImcCalculationScreen()),
+        body: const ImcCalculationScreen(),
         persistentFooterButtons: const [Footer()],
       ),
     );

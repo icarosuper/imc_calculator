@@ -5,6 +5,10 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Aplicativo criado por Ícaro Gomes Motta'));
+    return const Center(
+        child: Text(
+      'Aplicativo criado por Ícaro Gomes Motta',
+      style: TextStyle(fontSize: 15),
+    ));
   }
 }
