@@ -48,30 +48,37 @@ class _CalculatorState extends State<Calculator> {
             style: TextStyle(
               fontSize: 24,
             )),
-        TextField(
-            controller: heightController,
-            keyboardType: const TextInputType.numberWithOptions(decimal: false),
-            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-            maxLength: 3,
-            decoration: const InputDecoration(
-              labelText: 'Insira a sua altura em cm',
-              prefixIcon: Icon(Icons.height),
-              prefixText: 'Altura: ',
-              suffixText: 'cm',
-              filled: true,
-            )),
-        TextField(
-            controller: weightController,
-            keyboardType: const TextInputType.numberWithOptions(decimal: false),
-            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-            maxLength: 3,
-            decoration: const InputDecoration(
-              labelText: 'Insira o seu peso em Kg',
-              prefixIcon: Icon(Icons.scale),
-              prefixText: 'Peso: ',
-              suffixText: 'Kg',
-              filled: true,
-            )),
+        Wrap(
+          runSpacing: 20,
+          children: [
+            TextField(
+                controller: heightController,
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: false),
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                maxLength: 3,
+                decoration: const InputDecoration(
+                  labelText: 'Insira a sua altura em cm',
+                  prefixIcon: Icon(Icons.height),
+                  prefixText: 'Altura: ',
+                  suffixText: 'cm',
+                  filled: true,
+                )),
+            TextField(
+                controller: weightController,
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: false),
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                maxLength: 3,
+                decoration: const InputDecoration(
+                  labelText: 'Insira o seu peso em Kg',
+                  prefixIcon: Icon(Icons.scale),
+                  prefixText: 'Peso: ',
+                  suffixText: 'Kg',
+                  filled: true,
+                )),
+          ],
+        )
       ],
     );
   }
