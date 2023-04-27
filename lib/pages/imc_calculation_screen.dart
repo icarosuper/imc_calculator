@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:imc_calculator/components/calculator.dart';
 import 'package:imc_calculator/components/result_section.dart';
 
-class ImcScreen extends StatefulWidget {
-  const ImcScreen({super.key});
+class ImcCalculationScreen extends StatefulWidget {
+  const ImcCalculationScreen({super.key});
 
   @override
   State<StatefulWidget> createState() => _ImcState();
 }
 
-class _ImcState extends State<ImcScreen> {
+class _ImcState extends State<ImcCalculationScreen> {
   double? imc;
 
   setImc(double newImc) {
