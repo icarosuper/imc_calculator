@@ -17,7 +17,7 @@ class _CalculatorState extends State<Calculator> {
 
   setImc() {
     try {
-      final height = double.parse(heightController.text);
+      final height = double.parse(heightController.text) / 100;
       final weight = double.parse(weightController.text);
 
       widget.setImc(getImc(height, weight));
@@ -50,23 +50,21 @@ class _CalculatorState extends State<Calculator> {
             )),
         TextField(
             controller: heightController,
-            keyboardType: const TextInputType.numberWithOptions(decimal: true),
-            inputFormatters: [
-              FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))
-            ],
+            keyboardType: const TextInputType.numberWithOptions(decimal: false),
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            maxLength: 3,
             decoration: const InputDecoration(
-              labelText: 'Insira a sua altura em m',
+              labelText: 'Insira a sua altura em cm',
               prefixIcon: Icon(Icons.height),
               prefixText: 'Altura: ',
-              suffixText: 'm',
+              suffixText: 'cm',
               filled: true,
             )),
         TextField(
             controller: weightController,
-            keyboardType: const TextInputType.numberWithOptions(decimal: true),
-            inputFormatters: [
-              FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))
-            ],
+            keyboardType: const TextInputType.numberWithOptions(decimal: false),
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            maxLength: 3,
             decoration: const InputDecoration(
               labelText: 'Insira o seu peso em Kg',
               prefixIcon: Icon(Icons.scale),
